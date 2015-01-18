@@ -20,3 +20,4 @@ if [ ! -f $BUILD_DIR/requirements.txt ] && [ ! -f $BUILD_DIR/setup.py ]; then
 fi
 
 echo Python
+exit 0
