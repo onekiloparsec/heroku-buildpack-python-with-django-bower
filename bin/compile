@@ -52,6 +52,14 @@ bpwatch init $LOGPLEX_KEY
 bpwatch build python $BUILDPACK_VERSION $REQUEST_ID
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
 
+ENV_DIR=$3 # remember, it was the 3rd parameter passed in up there
+for KEY in HEROKU_URL DJANGO_SETTINGS_MODULE; do
+  [ -f $ENV_DIR/$KEY ] && export "$KEY=$(cat $ENV_DIR/$KEY)"
+  [ -z "${!KEY}" ] && echo "You didn't set $KEY, and this is required." && exit 1
+done
+echo "Config variables set: HEROKU_URL: $HEROKU_URL; DJANGO_SETTINGS_MODULE: $DJANGO_SETTINGS_MODULE."
+
+
 bpwatch start compile
 
 
