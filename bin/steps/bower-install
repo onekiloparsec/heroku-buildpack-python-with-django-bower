@@ -18,11 +18,11 @@ if [ ! "$DISABLE_BOWER" ] && [ -f "$MANAGE_FILE" ]; then
 
     if [ -f $HOME/.profile.d/nodejs.sh ]; then
 	source "$HOME/.profile.d/nodejs.sh"
-	echo "-----> Preparing bower update"
+	echo "-----> Preparing bower install"
 	if [ -f $HOME/node_modules/bower/bin/bower ]; then
 	    set-env PATH '$HOME/node_modules/bower/bin:$PATH'
-	    echo "       Running bower update..."
-	    python $MANAGE_FILE bower update | indent
+	    echo "       Running bower install..."
+	    python $MANAGE_FILE bower install | indent
 	else
 	    puts-missing "bower"
 	fi    
