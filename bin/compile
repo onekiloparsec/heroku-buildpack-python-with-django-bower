@@ -57,7 +57,7 @@ for KEY in HEROKU_URL DJANGO_SETTINGS_MODULE; do
   [ -f $ENV_DIR/$KEY ] && export "$KEY=$(cat $ENV_DIR/$KEY)"
   [ -z "${!KEY}" ] && echo "You didn't set $KEY, and this is required." && exit 1
 done
-echo "-----> Config variables set: HEROKU_URL: $HEROKU_URL; DJANGO_SETTINGS_MODULE: $DJANGO_SETTINGS_MODULE."
+echo "-----> Config variables set: HEROKU_URL=$HEROKU_URL DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE"
 
 
 bpwatch start compile
