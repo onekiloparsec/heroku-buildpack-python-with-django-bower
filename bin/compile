@@ -183,7 +183,7 @@ sub-env $BIN_DIR/steps/bower-install
 sub-env $BIN_DIR/steps/collectstatic
 
 # Django migrate support.
-sub-env $BIN_DIR/steps/migrate
+# sub-env $BIN_DIR/steps/migrate
 
 # ### Finalize
 #
