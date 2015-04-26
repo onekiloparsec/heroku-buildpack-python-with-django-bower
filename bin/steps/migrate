@@ -13,7 +13,7 @@ if [ -f "$MANAGE_FILE" ]; then
     set +e
 
     echo "-----> Running migrate..."
-    python $MANAGE_FILE migrate 2>&1 | indent
+    cat <(echo "yes") - | python $MANAGE_FILE migrate 2>&1 | indent
 
     [ $? -ne 0 ] && {
         echo " !     Error running 'manage.py migrate'."
